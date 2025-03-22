@@ -8,7 +8,8 @@ word_index = imdb.get_word_index()
 reverse_word_index = {value: key for key, value in word_index.items()}
 
 # load the IMBD dataset
-model = load_model("simple_enn_imbd.h5")
+model = load_model("./simple_enn_imbd.h5")
+")
 
 # step2 : helper function
 
