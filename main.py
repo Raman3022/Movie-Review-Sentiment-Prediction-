@@ -8,8 +8,7 @@ word_index = imdb.get_word_index()
 reverse_word_index = {value: key for key, value in word_index.items()}
 
 # load the IMBD dataset
-model = load_model("./simple_enn_imbd.h5")
-")
+model = load_model("C:\\Users\\Raman\\Simple RNN\\simple_enn_imbd.h5")
 
 # step2 : helper function
 
@@ -19,10 +18,12 @@ def decode_review(encoded_review):
 
 
 # fuction to preprocess user input
-def preprocess_review(text):
+def preprocess_review(text, maxlen=500):
     words = text.lower().split()
-    encoded_review = [word_index.get(word, 2) + 3 for word in words]
-    padded_review = sequence.pad_sequences([encoded_review], maxlen=500)
+    encoded_review = [
+        word_index.get(word, 2) + 3 for word in words
+    ]  # Offset unknown words
+    padded_review = sequence.pad_sequences([encoded_review], maxlen=maxlen)
     return padded_review
 
 
@@ -36,6 +37,7 @@ def predict_sentiment(review):
     print(f"Raw Prediction Output: {prediction}")  # Debugging
 
     sentiment = "Positive" if prediction[0][0] > 0.55 else "Negative"
+
     return sentiment, prediction[0][0]
 
 
