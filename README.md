@@ -1,6 +1,6 @@
 # Movie-Review-Sentiment-Prediction-
 
-# End-to-End Deep Learning Project using RNN
+End-to-End Deep Learning Project using RNN
 
 # Project Overview
 
